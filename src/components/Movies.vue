@@ -11,6 +11,7 @@
               :class="movie.vote_average > 8 ? 'list-group-item-success' : 'list-group-item-danger'"
             >{{movie.vote_average}}</span>
           </h5>
+          <h6>Released Date: {{movie.release_date}}</h6>
           <p class="card-text">{{movie.overview}}</p>
 
           <!-- Function to be added to Add Movie to State -->
@@ -52,6 +53,12 @@ export default {
     },
     deleteMovie(movieID) {
       this.$store.commit("deleteMovie", movieID);
+    },
+    formatDate(date) {
+      let monthNames = ["January"];
+      let formattedDate = new Date(date);
+
+      return `${formattedDate.getDate()} ${formattedDate.getMonth()}`;
     }
   }
 };
