@@ -1,11 +1,8 @@
 <template>
-  <div
-    id="favorites"
-    v-if="favoriteMovies.length"
-    class="jumbotron mx-auto col-md-auto col-sm-9 col-md-6"
-  >
+  <div id="favorites" v-if="favoriteMovies.length" class="jumbotron mx-auto col-sm-12 col-md-8">
     <h1>Your Favorites</h1>
 
+    <!-- Movie component rendering favorite movies -->
     <Movies :movies="favoriteMovies"/>
   </div>
 </template>
@@ -21,10 +18,6 @@ export default {
     favoriteMovies() {
       return this.$store.getters.favoriteMovies;
     }
-  },
-
-  watch: {
-    // favoriteMovies
   }
 };
 </script>
